@@ -3,7 +3,7 @@
 SRC=./src
 BIN=./bin
 OBJ=./obj
-#FLAGS=Fortran -Wall -WExtra -fcheck=all -std=fortranf2008 -o0
+#FLAGS="-Wall -Wextra -std=f2008 -fcheck=all -fbacktrace -o0"
 
 #$FLAGS
 
