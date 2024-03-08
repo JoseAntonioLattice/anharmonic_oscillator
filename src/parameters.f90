@@ -21,8 +21,8 @@ contains
     read(unit, nml = input_parameters)
     close(unit)
 
-    if( L < 0 ) error stop "L must be > 0"
-    if( dt < 0 ) error stop "dt must be > 0"
+    if( L <= 0 ) error stop "L must be > 0"
+    if( dt <= 0 ) error stop "dt must be > 0"
 
     write(*, nml = input_parameters)
 
