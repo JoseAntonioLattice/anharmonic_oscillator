@@ -1,7 +1,6 @@
 module arrays
 
   use iso_fortran_env, only: dp => real64, i4 => int32
-  use parameters
 
   implicit none
 
@@ -9,10 +8,9 @@ module arrays
 
 contains
 
-  subroutine set_memory_arrays(x, L)
+  subroutine set_memory_arrays(L)
 
     integer(i4), intent(in) :: L
-    real(dp), intent(out), dimension(:) :: x
     
     allocate(x(L))
 
