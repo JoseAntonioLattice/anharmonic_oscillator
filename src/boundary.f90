@@ -1,15 +1,15 @@
 module boundary
-    !!This module contains the boundary functions
-    use iso_fortran_env, only : dp => real64, i4 => int32
-    implicit none
+  !!This module contains the boundary functions
+  use iso_fortran_env, only : dp => real64, i4 => int32
+  implicit none
 
-    real(dp), allocatable, dimension(:) :: t, x
-  
-    
-  
+
+
   contains
   
+
   function ip(x, index) result(y)
+    !!This functions has an input 
     real(dp), intent(inout), dimension(:) :: x
     real(dp), intent(out), dimension(:) :: y
     integer(i4) :: index
@@ -45,17 +45,15 @@ function im(x, index) result(y)
   end if
 end function  im
 
-subroutine lagrangian(index, x,  dt, L)
-
+function lagrangian(index, x,  dt) result(L) 
   integer(i4) :: index
   real(dp), intent(out) :: L
   real(dp), intent(in) :: dt
   real(dp), intent(out), dimension(:) :: x
-
   
-  L = 1/2*( (x(index + 1) - x(index) ) /dt)^2 + 1/2*x(index)^2
+  L = 1/2*( (x(index + 1) - x(index) ) /dt)**2 + 1/2*/(x(index))**2
 
-end subroutine lagrangian
+end function lagrangian
 
       
   end module boundary
