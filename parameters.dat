@@ -1,5 +1,5 @@
 &input_parameters
-L = -10,
+L = 10,
 dt = 1
 /
 
