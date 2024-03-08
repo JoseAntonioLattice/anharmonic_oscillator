@@ -2,10 +2,7 @@
 
 SRC=./src
 BIN=./bin
-OBJ=./obj
-#FLAGS=Fortran -Wall -WExtra -fcheck=all -std=fortranf2008 -o0
-
-#$FLAGS
+FFLAGS="-Wall -Wextra -fcheck=all -std=f2008 -O0"
 
 if [ -d $BIN ]
 then
@@ -14,15 +11,8 @@ else
     mkdir $BIN
 fi
 
-if [ -d $OBJ ]
-then
-    rm $OBJ/*.o
-else
-    mkdir $OBJ
-fi
-
-gfortran -J$OBJ -c $SRC/parameters.f90 -o $OBJ/parameters.o
-gfortran -J$OBJ -c $SRC/arrays.f90 -o $OBJ/arrays.o
-gfortran -J$OBJ -c $SRC/main_test.f90 -o $OBJ/main_test.o
-gfortran $OBJ/*.o -o $BIN/anharmonic_oscillator.exe
+gfortran $FFLAGS -J$BIN -c $SRC/parameters.f90 -o $BIN/parameters.o
+gfortran $FFLAGS -J$BIN -c $SRC/arrays.f90 -o $BIN/arrays.o
+gfortran $FFLAGS -J$BIN -c $SRC/main_test.f90 -o $BIN/main_test.o
+gfortran $BIN/*.o -o $BIN/anharmonic_oscillator.exe
 $BIN/anharmonic_oscillator.exe <<< parameters.dat

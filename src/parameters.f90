@@ -11,22 +11,10 @@ module parameters
 
 contains
 
-  subroutine read_input(input_file)
+  subroutine read_input()
 
-    integer(i4) :: unit
-    character(100), intent(inout) :: input_file
-
-    read(*,*) input_file
-
-    open(newunit = unit, file = input_file)
-    read(unit, nml = input_parameters)
-    close(unit)
-
-    if ( L*dt < 0 ) then
-       print*, "¡Tanto L como dt deben ser positivos!"
-       print*, "Prueba con otros valores"
-       stop
-    end if
+    if( L < 0) error stop "L must be > 0"
+    if( dt < 0) error stop "dt must be > 0"
 
   end subroutine read_input
     
