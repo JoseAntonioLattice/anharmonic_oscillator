@@ -57,6 +57,5 @@ subroutine lagrangian(index, x,  dt, L)
 
 end subroutine lagrangian
 
-
       
   end module boundary
