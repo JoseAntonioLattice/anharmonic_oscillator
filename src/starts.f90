@@ -7,9 +7,9 @@ contains
   
   subroutine cold_start(x)
 
-    real(dp), intent(inout), dimension(:) :: x
+    real(dp), intent(out), dimension(:) :: x
     
-     x(:) = 0.0_dp
+     x = 0.0_dp
     
   end subroutine cold_start
 
@@ -20,7 +20,7 @@ contains
 
     call random_number(r)
     
-    x(:) = 2.0_dp*r(:) - 1.0_dp
+    x = 2*r - 1.0_dp
     
   end subroutine hot_start
 
