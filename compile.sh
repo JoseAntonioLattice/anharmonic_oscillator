@@ -8,8 +8,7 @@ FFLAGS="-Wall -Wextra -fcheck=all -std=f2008 -O0"
 
 if [ -d $BIN ]
 then
-    rm $BIN/*.exe
-    rm $BIN/*.o
+    rm $BIN/*
 else
     mkdir $BIN
 fi

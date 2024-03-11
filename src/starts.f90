@@ -3,32 +3,24 @@ module starts
   use iso_fortran_env, only : dp => real64, i4 => int32
   implicit none
 
-  integer(i4) :: i
-
 contains
   
-  subroutine cold_start(x, L)
+  subroutine cold_start(x)
 
-    integer(i4), intent(in) :: L
-    real(dp), intent(out), dimension(L) :: x
-
-    do i = 1, L
-       x(i) = 0
-    end do
+    real(dp), intent(inout), dimension(:) :: x
+    
+     x(:) = 0.0_dp
     
   end subroutine cold_start
 
-  subroutine hot_start(x, L)
-
-    integer(i4), intent(in) :: L
-    real(dp), dimension(L) :: r 
-    real(dp), intent(out), dimension(L) :: x 
+  subroutine hot_start(x)
+ 
+    real(dp), intent(out), dimension(:) :: x
+    real(dp), dimension(size(x)) :: r
 
     call random_number(r)
     
-    do i = 1, L
-       x(i) = 2*r(i) - 1
-    end do
+    x(:) = 2.0_dp*r(:) - 1.0_dp
     
   end subroutine hot_start
 

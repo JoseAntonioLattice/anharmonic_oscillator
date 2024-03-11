@@ -8,8 +8,9 @@ program main
 
   call read_input()
   call set_memory_arrays(L)
-  call hot_start(x,L)
-
+  call cold_start(x)
+  print*, x
+  call hot_start(x)
   print*, x
 
 end program main
