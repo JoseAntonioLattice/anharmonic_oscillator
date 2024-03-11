@@ -1,5 +1,6 @@
 module periodic_boundary_conditions
-  !!This module contains the boundary functions
+  !!This module contains the periodic boundary conditions 
+  !!for a lattice
   use iso_fortran_env, only : dp => real64, i4 => int32
   implicit none
 
