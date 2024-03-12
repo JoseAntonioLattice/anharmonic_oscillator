@@ -1,3 +1,7 @@
+# Directories
+\bin
+
+# Files
 .DS_Store
 *.o
 *.mod
