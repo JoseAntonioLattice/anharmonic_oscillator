@@ -3,5 +3,5 @@
 *.mod
 \#*#
 .*~
-\tests
-
+\tests/*
+\bin
