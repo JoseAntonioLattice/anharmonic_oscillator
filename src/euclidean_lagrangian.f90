@@ -13,8 +13,8 @@ contains
 
 function lagrangian(x_i, x_i_1, dt, lambda) result(L)
   
-  integer, intent(in) :: x_i, lambda
-  real(dp) :: L, dt, x_i_1 
+  real, intent(in) :: x_i, x_i_1
+  real(dp) :: L, dt, lambda
 
   
   L = 0.5*((x_i_1 - x_i)/dt)**2 + 0.5 * x_i**2 +lambda*x_i**4
