@@ -1,5 +1,11 @@
 &input_parameters
 L = 10,
-dt = 1
+dt = 1,
+epsilon = 0.5
 /
+
+
+
+
+
 
