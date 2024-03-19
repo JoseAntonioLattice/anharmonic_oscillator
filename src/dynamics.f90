@@ -14,26 +14,23 @@ contains
     real(dp), intent(in) :: epsilon, ds 
     real(dp), intent(inout), dimension(:) :: x
 
+    open(newunit = unit, file = "./data/actions.dat", position = "append")
+    
     do j = 1, n
-
-       open(newunit = unit, file = "./data/actions.dat", position = "append")
+       
        write(unit, *) j, x
-       close(unit)
     
     do i = 1, size(x)
 
-       x0 = x(i)
-
-       do
-          if ( x0 /= x(i) ) exit
-          call random_number(r)
-          xn = 2*epsilon*r + x0 - epsilon
-          call metropolis(x(i), xn, ds)
-       end do
+       call random_number(r)
+       xn = 2*epsilon*r + x(i) - epsilon
+       call metropolis(x(i), xn, ds)
        
     end do
     
     end do
+
+      close(unit)
     
   end subroutine sweeps
 
