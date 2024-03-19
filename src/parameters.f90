@@ -4,10 +4,10 @@ module parameters
   implicit none
 
   integer(i4) :: L
-  real(dp) :: dt
+  real(dp) :: dt, epsilon
   character(100) :: input_file
 
-  namelist /input_parameters/ L, dt
+  namelist /input_parameters/ L, dt, epsilon
 
 contains
 
