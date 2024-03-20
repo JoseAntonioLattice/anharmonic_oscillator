@@ -40,7 +40,7 @@ subroutine numerical_action(x_array,  dt, lambda, action)
   real(dp), intent(out) :: action
   integer(i4) :: N,i
 
-  action = 0.0
+  action = 0.0_dp
   N = size(x_array)
 
   do i = 1, N
