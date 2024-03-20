@@ -1,11 +1,7 @@
-# Directories
-\bin
-
-# Files
 .DS_Store
 *.o
 *.mod
 \#*#
 *~
-\tests\*
+\tests
 \bin
