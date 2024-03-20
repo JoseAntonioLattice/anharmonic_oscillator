@@ -2,6 +2,6 @@
 *.o
 *.mod
 \#*#
-.*~
-\tests\*
+*~
+\tests
 \bin
