@@ -10,7 +10,7 @@ contains
 
   subroutine sweep(x, epsilon, dt, lambda)
 
-    integer(i4) :: i, unit
+    integer(i4) :: i
     real(dp) :: r, xn, DS
     real(dp), intent(in) :: epsilon, dt, lambda
     real(dp), intent(inout), dimension(:) :: x
