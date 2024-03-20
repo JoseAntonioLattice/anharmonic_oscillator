@@ -5,9 +5,9 @@ module parameters
 
   integer(i4) :: L
   real(dp) :: dt, epsilon
-  character(100) :: input_file
+  character(100) :: input_file, start
 
-  namelist /input_parameters/ L, dt, epsilon
+  namelist /input_parameters/ L, dt, epsilon, start
 
 contains
 

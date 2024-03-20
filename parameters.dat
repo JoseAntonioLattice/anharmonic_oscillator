@@ -1,7 +1,8 @@
 &input_parameters
-L = 10,
-dt = 1,
-epsilon = 0.5
+L = 100,
+dt = 0.1,
+epsilon = 1.0,
+start = "hot"
 /
 
 

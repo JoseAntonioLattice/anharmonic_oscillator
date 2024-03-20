@@ -25,7 +25,7 @@ subroutine deltaS(x_array,  dt, lambda, DS)
   xjprime = x_array(4)
   
   DS = dt * (lagrangian(xjminus1, xjprime, dt, lambda) + lagrangian(xjprime, xjplus1, dt, lambda) &
-              - lagrangian(xjplus1, xj, dt, lambda) - lagrangian(xj, xjplus1, dt, lambda)) 
+              - lagrangian(xjminus1, xj, dt, lambda) - lagrangian(xj, xjplus1, dt, lambda)) 
 
   
 
@@ -45,7 +45,7 @@ subroutine numerical_action(x_array,  dt, lambda, action)
 
   do i = 1, N
 
-    action =  action + lagrangian(x_array(i), x_array(ip(i)), dt, lambda)
+    action =  action + lagrangian(x_array(i), x_array(ip(i)), dt, lambda)*dt
 
   end do
   
