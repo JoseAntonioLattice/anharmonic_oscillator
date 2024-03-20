@@ -2,6 +2,8 @@ module euclidean_lagrangian
   !!This module contains the functions that defines de euclidean lagrangian
   !!for the anharmonic oscillator
   use iso_fortran_env, only : dp => real64, i4 => int32
+  use periodic_boundary_conditions
+
   implicit none
 
 
@@ -29,6 +31,25 @@ subroutine deltaS(x_array,  dt, lambda, DS)
 
   
 end subroutine deltaS
+
+
+subroutine numerical_action(x_array,  dt, lambda, action)
+
+  real(dp),intent(in), dimension(:) :: x_array
+  real(dp), intent(in) :: dt, lambda
+  real(dp), intent(out) :: action
+  integer(i4) :: N,i
+
+  action = 0.0
+  N = size(x_array)
+
+  do i = 1, N
+
+    action =  action + lagrangian(x_array(i), x_array(ip(i)), dt, lambda)
+
+  end do
+  
+end subroutine numerical_action
 
 
 
