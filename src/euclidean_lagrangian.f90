@@ -66,4 +66,6 @@ function lagrangian(x_i, x_i_1, dt, lambda) result(L)
   
 end function lagrangian
 
+
+
 end module euclidean_lagrangian
