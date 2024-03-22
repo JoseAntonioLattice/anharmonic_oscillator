@@ -44,8 +44,9 @@ contains
     else
        error stop "Wrong start / Please select one: hot or cold"
     end if
-
+    
     open(newunit = unit, file = "./data/action.dat")
+    
     call numerical_action(x,  dt, lambda, action)
     write(unit, *) action
     
@@ -60,6 +61,28 @@ contains
     close(unit)
     
   end subroutine thermalization
+
+  subroutine measure_sweeps(x, epsilon, dt, lambda, N_measurements, N_skip)
+
+    integer(i4) :: i, unit
+    integer(i4), intent(in) :: N_measurements, N_skip
+    real(dp), intent(in) :: epsilon, dt, lambda
+    real(dp) :: action
+    real(dp), intent(inout), dimension(:) :: x
+    
+    open(newunit = unit, file = "./data/measurements.dat")
+    
+    do i = 1, N_measurements*N_skip
+       
+       call sweep(x, epsilon, dt, lambda)
+       call numerical_action(x,  dt, lambda, action)
+       if ( mod(i, N_skip) == 0 ) write(unit, *) action
+       
+    end do
+
+    close(unit)
+    
+  end subroutine measure_sweeps
   
 end module dynamics
 
