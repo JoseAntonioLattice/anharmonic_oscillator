@@ -9,6 +9,6 @@ program main
   call read_input()
   call set_memory_arrays(L)
   call set_boundary_conditions(L)
-  call thermalization(start, x, epsilon, dt, 0.0_dp, 500)
+  call thermalization(start, x, epsilon, dt, 0.0_dp, 10000)
 
 end program main

@@ -47,13 +47,13 @@ contains
 
     open(newunit = unit, file = "./data/action.dat")
     call numerical_action(x,  dt, lambda, action)
-    call expected_value(x, energy)
+    call ground_state_energy(x, energy)
     write(unit, *) action, energy
     
     do i = 1, N_thermalization
        
        call sweep(x, epsilon, dt, lambda)
-       call expected_value(x, energy)
+       call ground_state_energy(x, energy)
        call numerical_action(x,  dt, lambda, action)
        write(unit, *) action, energy
        
@@ -62,6 +62,23 @@ contains
     close(unit)
     
   end subroutine thermalization
+
+  subroutine ground_state_energy(x_array, val)
+  
+   real(dp),intent(in), dimension(:) :: x_array
+   real(dp), intent(out) :: val
+
+   integer(i4) :: index, L
+   L = size(x_array)
+   val = 0.0_dp
+ 
+   do index = 1, L
+      val =  val + (x_array(index))**2
+   end do
+   val = val/L
+   !val = sum(x_array**2)/size(x_array)
+   
+ end subroutine ground_state_energy
   
 end module dynamics
 
