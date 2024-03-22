@@ -66,4 +66,22 @@ function lagrangian(x_i, x_i_1, dt, lambda) result(L)
   
 end function lagrangian
 
+
+subroutine expected_value(x_array, val)
+  
+  real(dp),intent(in), dimension(:) :: x_array
+  real(dp), intent(out) :: val
+  integer(i4) :: index, L
+  L = size(x_array)
+  val = 0.0_dp
+
+  do index = 1, L
+    val =  val + x_array(index)**2
+  end do
+
+  
+end subroutine expected_value
+
+
+
 end module euclidean_lagrangian

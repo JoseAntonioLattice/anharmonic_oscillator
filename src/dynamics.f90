@@ -33,7 +33,7 @@ contains
     integer(i4) :: i, unit
     integer(i4), intent(in) :: N_thermalization
     real(dp), intent(in) :: epsilon, dt, lambda
-    real(dp) :: action
+    real(dp) :: action, energy
     real(dp), intent(inout), dimension(:) :: x
     character(100), intent(in) :: start
 
@@ -52,8 +52,9 @@ contains
     do i = 1, N_thermalization
        
        call sweep(x, epsilon, dt, lambda)
+       call expected_value(x, energy)
        call numerical_action(x,  dt, lambda, action)
-       write(unit, *) action
+       write(unit, *) action, energy
        
     end do
 
