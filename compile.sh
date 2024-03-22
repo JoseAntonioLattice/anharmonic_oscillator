@@ -16,7 +16,7 @@ fi
 
 if [ -d $DATA ]
 then
-    echo $DATA "directory exist"
+    echo $DATA "directory already exist"
 else
     mkdir $DATA
 fi
@@ -28,6 +28,7 @@ $FC $FFLAGS -J$BIN -c $SRC/periodic_boundary_conditions.f90 -o $BIN/periodic_bou
 $FC $FFLAGS -J$BIN -c $SRC/euclidean_lagrangian.f90 -o $BIN/euclidean_lagrangian.o
 $FC $FFLAGS -J$BIN -c $SRC/local_update_algorithms.f90 -o $BIN/local_update_algorithms.o
 $FC $FFLAGS -J$BIN -c $SRC/dynamics.f90 -o $BIN/dynamics.o
+#$FC $FFLAGS -J$BIN -c $SRC/measurements.f90 -o $BIN/measurements.o
 $FC $FFLAGS -J$BIN -c $SRC/main.f90 -o $BIN/main.o
 $FC $BIN/*.o -o $BIN/$TARGET
 $BIN/$TARGET <<< parameters.dat
