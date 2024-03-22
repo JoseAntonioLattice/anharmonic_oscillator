@@ -47,7 +47,8 @@ contains
 
     open(newunit = unit, file = "./data/action.dat")
     call numerical_action(x,  dt, lambda, action)
-    write(unit, *) action
+    call expected_value(x, energy)
+    write(unit, *) action, energy
     
     do i = 1, N_thermalization
        
