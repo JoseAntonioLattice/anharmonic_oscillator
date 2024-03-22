@@ -69,7 +69,7 @@ contains
     integer(i4) :: i, unit
     integer(i4), intent(in) :: N_measurements, N_skip
     real(dp), intent(in) :: epsilon, dt, lambda
-    real(dp) :: action
+    real(dp) :: action, energy
     real(dp), intent(inout), dimension(:) :: x
     
     open(newunit = unit, file = "./data/measurements.dat")
@@ -77,8 +77,12 @@ contains
     do i = 1, N_measurements*N_skip
        
        call sweep(x, epsilon, dt, lambda)
-       call numerical_action(x,  dt, lambda, action)
-       if ( mod(i, N_skip) == 0 ) write(unit, *) action
+       
+       if ( mod(i, N_skip) == 0 ) then
+          call numerical_action(x,  dt, lambda, action)
+          call ground_state_energy(x, energy)
+          write(unit, *) action, energy 
+       end if
        
     end do
 
