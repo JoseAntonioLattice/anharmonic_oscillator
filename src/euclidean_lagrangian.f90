@@ -78,7 +78,7 @@ subroutine expected_value(x_array, val)
   do index = 1, L
     val =  val + x_array(index)**2
   end do
-
+  val = val/L
   
 end subroutine expected_value
 
