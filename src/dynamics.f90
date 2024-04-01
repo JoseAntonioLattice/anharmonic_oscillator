@@ -30,11 +30,12 @@ contains
 
   subroutine thermalization(start, x, epsilon, dt, lambda, N_thermalization)
 
-    integer(i4) :: i, unit
+    integer(i4) :: i, j, unit
     integer(i4), intent(in) :: N_thermalization
     real(dp), intent(in) :: epsilon, dt, lambda
     real(dp) :: action, energy
     real(dp), intent(inout), dimension(:) :: x
+    real(dp), dimension(size(x), N_thermalization) :: u
     character(100), intent(in) :: start
 
     if ( start == "hot" ) then
@@ -46,12 +47,15 @@ contains
     end if
     
     open(newunit = unit, file = "./data/action.dat")
+    open(unit = 1, file = "./data/trajectories.dat")
     
     call numerical_action(x,  dt, lambda, action)
     call ground_state_energy(x, energy)
     write(unit, *) action, energy
     
     do i = 1, N_thermalization
+ 
+       u(:,i) = x
        
        call sweep(x, epsilon, dt, lambda)
        call ground_state_energy(x, energy)
@@ -60,6 +64,11 @@ contains
        
     end do
 
+    do j = 1, size(x)
+       write(1, *) u(j,:)  
+    end do
+
+    close(1)
     close(unit)
     
   end subroutine thermalization
