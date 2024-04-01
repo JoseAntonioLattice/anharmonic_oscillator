@@ -1,0 +1,7 @@
+This module use the modules local_update_algorithms, starts and euclidean_lagrangian and contains the next three subroutines:
+
+- sweep, takes an array x and the parameters epsilon, dt and lambda. This subroutine propose a new value between x-epsilon and x+epsilon for each entry of the array x and sweep it or not according to the Metropolis algoritm.
+
+- thermalization, takes a start (hot or cold), an array x and the parameters epsilon, lambda and N_thermalization. This subroutine initialize an array x and realize a number N_thermalization of sweeps. In each iteration calculate the action and the energy which are stored in the file action.dat. Also x arrays values of each sweep are stored in the file trajectories.dat.
+
+- measure_sweeps, takes an array x and the parameters epsilon, lambda, N_measurements and N_skip. This subroutine realize a number N_thermalization*N_skip of sweeps and each N_skip calculate the action and the energy which are stored in the file measurements.dat.
