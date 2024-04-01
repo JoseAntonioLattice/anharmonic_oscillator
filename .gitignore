@@ -1,9 +1,8 @@
 .DS_Store
 *.o
 *.mod
-*.dat
 \#*#
 *~
 \tests
 \bin
-\data
+data
