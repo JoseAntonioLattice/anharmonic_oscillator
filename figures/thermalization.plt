@@ -4,7 +4,7 @@ set output 'thermalization.gif'
 
 set title "Thermalization"
 
-set xlabel "Stopping time"
+set xlabel "Sweeps"
 set ylabel "Action"
 
 set xrange[0.0:1000.0]
