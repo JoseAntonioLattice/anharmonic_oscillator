@@ -1,7 +1,4 @@
 &input_parameters
-N_thermalization = 1000,
-N_measurements = 1000,
-N_skip = 10,
 L = 100,
 dt = 0.1,
 epsilon = 1.0,
