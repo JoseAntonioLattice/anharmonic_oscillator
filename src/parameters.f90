@@ -4,10 +4,10 @@ module parameters
   implicit none
 
   integer(i4) :: L, N_thermalization, N_measurements, N_skip
-  real(dp) :: dt, epsilon
+  real(dp) :: dt, epsilon, lambda
   character(100) :: input_file, start
 
-  namelist /input_parameters/ N_thermalization, N_measurements, N_skip, L, dt, epsilon, start
+  namelist /input_parameters/ N_thermalization, N_measurements, N_skip, L, dt, epsilon,lambda, start
 
 contains
 

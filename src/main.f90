@@ -4,14 +4,13 @@ program main
   use arrays
   use dynamics
   use periodic_boundary_conditions
-
-  implicit none
-
+  use statistics
+  
   call read_input()
   call set_memory_arrays(L)
   call set_boundary_conditions(L)
-  call thermalization(start, x, epsilon, dt, 0.0_dp, N_thermalization)
-  call measure_sweeps(x, epsilon, dt, 0.0_dp, N_measurements, N_skip)
-
-
+  call thermalization(start, x, epsilon, dt, lambda, N_thermalization)
+  call measure_sweeps(x, epsilon, dt, lambda, N_measurements, N_skip)
+  call mean_n_standard_error(N_measurements)
+  
 end program main

@@ -2,11 +2,6 @@
 L = 100,
 dt = 0.1,
 epsilon = 1.0,
+lambda = 0.0,
 start = "hot"
 /
-
-
-
-
-
-

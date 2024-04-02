@@ -1,0 +1,10 @@
+In this module are defined all parameters: L, N_thermalization, N_measurements, N_skips, dt, epsilon, lambda, starte and input_file. Contains just one subroutine called read_input that take a file named "parameters.dat" which includes a namelist with the parameters that the user can define for the program:
+
+- N_thermalization: Number of steps to the thermalization
+- N_measurements: Number of measurements
+- N_skip: Number of skips to take measurements
+- L: Spaces for the lattice
+- dt: Step of time
+- epsilon: Range to consider new candidates at Metropolis algorithm
+- lambda: Asymetry parameters
+- start: How initialize the array, constant (cold) or aleatory (hot)
