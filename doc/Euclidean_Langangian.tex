@@ -1,0 +1,26 @@
+\section{Euclidean Lagrangian Module}
+
+The \textsc{deltaS} subroutine computes the difference between two values at a given point in the lattice. That is, if we swap $x_j \rightarrow x'_j$ then the difference of the action $S$ evaluated at each point  is given by 
+
+\begin{equation}
+    \Delta S = dt\left[ \mathcal{L }(x_{j-1}, x_{j}') + \mathcal{L }(x_{j}', x_{j+1}) - \mathcal{L}(x_{j-1}, x_j)-\mathcal{L}(x_j, x_{j+1})\right]
+\end{equation}
+where $\mathcal{L}$ corresponds to the \textsc{lagrangian} function definded as
+\begin{equation}
+    \mathcal{L}(x_{i}, x_{i+1}) = \frac{1}{2}\left(\frac{x_{i+1}-x_i}{dt}\right)^2 + \frac{1}{2}x_i^2  + \lambda x_i^4
+\end{equation}
+
+Meanwhile, the full numerical action given a trajectory evaluated on the lattice is calculated through the \textsc{numerical\_action} subroutine given by
+\begin{equation}
+    S(\{x_k\})=dt\sum_{i=1}^N \mathcal{L}(x_{i}, x_{i+1})
+\end{equation}
+
+\section{Periodic Boundary Conditions}
+
+This module initializes the arrays for treating the boundary values of the lattice which is contained in the \textsc{set\_boundary\_conditions} which given the size of the lattice $L$ returns two arrays given by the functions 
+
+\begin{align}
+     ip(j) &= j + 1  &  ip(L)=&1\\
+    im(j) &= j - 1  &  im(1)=&L
+\end{align}
+
