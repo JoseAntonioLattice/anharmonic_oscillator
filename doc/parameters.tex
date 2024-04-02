@@ -1,10 +1,14 @@
-In this module are defined all parameters: L, N_thermalization, N_measurements, N_skips, dt, epsilon, lambda, starte and input_file. Contains just one subroutine called read_input that take a file named "parameters.dat" which includes a namelist with the parameters that the user can define for the program:
+\section{parameters module}
 
-- N_thermalization: Number of steps to the thermalization
-- N_measurements: Number of measurements
-- N_skip: Number of skips to take measurements
-- L: Spaces for the lattice
-- dt: Step of time
-- epsilon: Range to consider new candidates at Metropolis algorithm
-- lambda: Asymetry parameters
-- start: How initialize the array, constant (cold) or aleatory (hot)
+In this module are defined all parameters: \textbf{L}, \textbf{N\_thermalization}, \textbf{N\_measurements}, \textbf{N\_skips}, \textbf{dt}, \textbf{epsilon}, \textbf{lambda}, \textbf{start} and \textbf{input\_file}. Contains just one subroutine called \textbf{\textit{read\_input}} that take a file named "\textit{parameters.dat}" which includes a \textit{namelist} with the parameters that the user can define for the program:
+
+\begin{itemize}
+\item \textbf{N\_thermalization}: Number of steps to the thermalization.
+\item \textbf{N\_measurements}: Number of measurements.
+\item \textbf{N\_skips}: Number of skips to take measurements.
+\item \textbf{L}: Spaces for the lattice.
+\item \textbf{dt}: Step of time.
+\item \textbf{epsilon}: Range to consider new candidates at Metropolis algorithm.
+\item \textbf{lambda}: Asymetry parameters.
+\item \textbf{start}: How initialize the array, constant (cold) or aleatory (hot).
+\end{itemize}
