@@ -1,7 +1,11 @@
-This module use the modules local_update_algorithms, starts and euclidean_lagrangian and contains the next three subroutines:
+\section{dynamics module}
 
-- sweep, takes an array x and the parameters epsilon, dt and lambda. This subroutine propose a new value between x-epsilon and x+epsilon for each entry of the array x and sweep it or not according to the Metropolis algoritm.
+This module use the modules \underline{\textbf{local\_update\_algorithms}}, \underline{\textbf{starts}} and \underline{\textbf{euclidean\_lagrangian}} and contains the next three subroutines:
 
-- thermalization, takes a start (hot or cold), an array x and the parameters epsilon, lambda and N_thermalization. This subroutine initialize an array x and realize a number N_thermalization of sweeps. In each iteration calculate the action and the energy which are stored in the file action.dat. Also x arrays values of each sweep are stored in the file trajectories.dat.
+\begin{itemize}
+\item \textit{\textbf{sweep}}, takes an array \textbf{x} and the parameters \textbf{epsilon}, \textbf{dt} and \textbf{lambda}. This subroutine propose a new value between x-epsilon and x+epsilon for each entry of the array x and sweep it or not according to the Metropolis algoritm.
 
-- measure_sweeps, takes an array x and the parameters epsilon, lambda, N_measurements and N_skip. This subroutine realize a number N_thermalization*N_skip of sweeps and each N_skip calculate the action and the energy which are stored in the file measurements.dat.
+\item \textit{\textbf{thermalization}}, takes a \textbf{start} (hot or cold), an array \textbf{x} and the parameters \textbf{epsilon}, \textbf{lambda} and \textbf{N\_thermalization}. This subroutine initialize an array x and realize a number N\_thermalization of sweeps. In each iteration calculate the action and the energy which are stored in the file \textit{action.dat}. Also x arrays values of each sweep are stored in the file \textit{trajectories.dat}.
+
+\item \textit{\textbf{measure\_sweeps}}, takes an array \textbf{x} and the parameters \textbf{epsilon}, \textbf{lambda}, \textbf{N\_measurements} and \textbf{N\_skip}. This subroutine realize a number N\_thermalization*N\_skip of sweeps and each N\_skip calculate the action and the energy which are stored in the file \textit{measurements.dat}.
+\end{itemize}
