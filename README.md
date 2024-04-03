@@ -20,7 +20,7 @@ $$
 
 <br/>
 
-### Program Structure
+### Repo Contains
 ```
 .
 ├── src 
@@ -64,3 +64,11 @@ To run the program execute the following line in the terminal:
 ```
 bash compile.sh
 ```
+
+Structure Of The Program
+------------------------
+
+The structure of the Fortran 95 modules is described here. The relations of all .f90 files are can be summarized as follows:
+
+
+![My Image](dependency_diagram.png )
