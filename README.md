@@ -23,7 +23,7 @@ $$
 ### Program Structure
 ```
 .
-├── src
+├── src 
 │   ├── arrays.f90 (Module for intitialize arrays) 
 │   ├── parameters.f90 (Module for user input parameters) 
 │   ├── periodic_boundary_conditions.f90 (Module for implementing the periodic boundary conditions)
@@ -33,14 +33,34 @@ $$
 │   ├── statistics.f90 (Module that implements a variety of useful statistics functions)
 │   ├── dynamics.f90 (Module that implements a variety of useful subroutines to the main thermalization algorithm)
 │   ├── local_update_algorithms.f90 (Module that contains the Metropolis and Glauber algorithms)
+├── data (folder to store the output data)
+├── figures (folder to store output animation)
+
+
   
 ```
 
-### Compilation
+# Usage and Compilation
 
 -----------
 
 The main code is standard Fortran 95 and can be compiled
-with any standard f95 conforming compiler. 
+with any standard f95 conforming compiler.
 
-To run the program 
+## Intitial Conditions
+You can modifiy the ``parameters.dat`` file to enter different settings for the input parameters. The defult ones are: 
+
+```
+&input_parameters
+L = 100,
+dt = 0.1,
+epsilon = 1.0,
+lambda = 0.0,
+start = "hot"
+/
+```
+
+To run the program execute the following line in the terminal:
+```
+bash compile.sh
+```
